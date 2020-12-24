@@ -1,7 +1,7 @@
 # oh-my-geometry
 Cheatsheet for frequently used procedural 2D geometry in p5
 
-Get the midpoint of a line segment
+Get the midpoint of a line segment, the complicated way
 ```javascript
 function midpoint(x1, y1, x2, y2) {
   let v1 = createVector(x1, y1);
