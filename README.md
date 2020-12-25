@@ -1,10 +1,17 @@
 # oh-my-geometry
 Cheatsheet for frequently used procedural 2D geometry in p5
 
-### Get the angle between two vectors
+### Get the length of a line segment
+Subtract two position vectors to get a direction vector between them. 
 ```javascript
-// The dot product divided by the magnitude product is the cosine of the angle
-// https://onlinemschool.com/math/library/vector/angl/
+function segLength(v1, v2) {
+  return v2.copy().sub(v1.copy()).mag();
+}
+```
+
+### Get the angle between two vectors
+The dot product divided by the magnitude product is the cosine of the angle.
+```javascript
 function getAngle(v1, v2) {
   const dotProduct = v2.dot(v1);
   const magProduct = v1.mag() * v2.mag();
