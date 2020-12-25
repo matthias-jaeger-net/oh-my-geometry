@@ -1,7 +1,7 @@
 # oh-my-geometry
 Cheatsheet for frequently used procedural 2D geometry in p5
 
-Get the angle between two vectors
+### Get the angle between two vectors
 ```javascript
 // The dot product divided by the magnitude product is the cosine of the angle
 // https://onlinemschool.com/math/library/vector/angl/
@@ -12,7 +12,25 @@ function getAngle(v1, v2) {
 }
 ```
 
-Get the midpoint of a line segment, the complicated way
+### Get the angles of all points in a triangle
+```javascript
+function getAngles(points) {
+  const ab = points[1].copy().sub(points[0].copy());
+  const ac = points[2].copy().sub(points[0].copy());
+  const angle1 = getAngle(ab, ac);
+  
+  const bc = points[2].copy().sub(points[1].copy());
+  const ba = points[0].copy().sub(points[1].copy());
+  const angle2 = getAngle(bc, ba);
+
+  const ca = points[0].copy().sub(points[2].copy());
+  const cb = points[1].copy().sub(points[2].copy());
+  const angle3 = getAngle(ca, cb);
+  return [angle1, angle2, angle3];
+}
+```
+
+### Get the midpoint of a line segment, the complicated way
 ```javascript
 function midpoint(x1, y1, x2, y2) {
   let v1 = createVector(x1, y1);
@@ -26,7 +44,8 @@ function midpoint(x1, y1, x2, y2) {
   return createVector(x, y);
 }
 ```
-Get a point on a line segement and pass the length of the offset
+
+### Get a point on a line segement and pass the length of the offset
 ```javascript
 function segpoint(x1, y1, x2, y2, len) {
   let v1 = createVector(x1, y1);
