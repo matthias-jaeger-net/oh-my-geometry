@@ -1,6 +1,17 @@
 # oh-my-geometry
 Cheatsheet for frequently used procedural 2D geometry in p5
 
+Get the angle between two vectors
+```javascript
+// The dot product divided by the magnitude product is the cosine of the angle
+// https://onlinemschool.com/math/library/vector/angl/
+function getAngle(v1, v2) {
+  const dotProduct = v2.dot(v1);
+  const magProduct = v1.mag() * v2.mag();
+  return acos(dotProduct / magProduct);
+}
+```
+
 Get the midpoint of a line segment, the complicated way
 ```javascript
 function midpoint(x1, y1, x2, y2) {
